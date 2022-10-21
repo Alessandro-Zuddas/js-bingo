@@ -1,0 +1,76 @@
+/*-------------------
+    RESET
+--------------------*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/*-------------------
+    COMMON
+--------------------*/
+body {
+    background-color: #eee;
+}
+
+.container {
+    max-width: 62.5rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    margin: 0 auto;
+}
+
+main {
+    margin-top: 3.75rem;
+    min-height: 100vh;
+}
+
+/*-------------------
+    HEADER
+--------------------*/
+header {
+    text-align: center;
+}
+
+/*-------------------
+    BOARD
+--------------------*/
+
+.board {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.board__number {
+    height: 3.75rem;
+    width: 3.75rem;
+    background-color: lightblue;
+    color: #fff;
+    font-size: 1.4rem;
+    text-align: center;
+    line-height: 3.75rem;
+    border: 1px solid #000;
+}
+.board__number--selected {
+    background-color: green;
+}
+
+/*-------------------
+    ACTIONS
+--------------------*/
+.actions {
+    margin-top: 2.5rem;
+}
+
+.generator {
+    width: 150px;
+    text-align: center;
+    padding: .625rem;
+    border: 1px solid #000;
+}
+.generator__number {
+    font-weight: bold;
+    font-size: 2rem;
+    margin-top: .625rem;
+}
