@@ -75,13 +75,19 @@ header {
     text-align: center;
     padding: .625rem;
     background-color: white;
-    border: 1px solid #000;
+    border: .0313rem solid #000;
     border-radius: .625rem;
 }
 .generator__number {
     font-weight: bold;
     font-size: 2rem;
     margin-top: .625rem;
+    padding-bottom: .3125rem;
+}
+
+.buttons{
+    padding: .3125rem .625rem;
+    border-radius: .625rem;
 }
 
 /*-------------------

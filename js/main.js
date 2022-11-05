@@ -36,6 +36,8 @@ const bingoNumbers = createBingoNumbers(maxNumber);
 const btnGenerator = document.getElementById("btn-generator");
 const generatorNumberElement = document.querySelector(".generator__number");
 
+const btnReset = document.getElementById("btn-reset");
+
 btnGenerator.addEventListener('click', function() {
     // genero un numero casuale che sarà l'indice dell'elemento dell'array bingoNumbers
     const indexRandom = getRndInteger(0, bingoNumbers.length);
@@ -54,4 +56,8 @@ btnGenerator.addEventListener('click', function() {
         alert("Gioco terminato! La pagina verrà ricaricata automaticamente");
         window.location.reload();
     }
+});
+
+btnReset.addEventListener("click", function(){
+    window.location.reload();
 });
