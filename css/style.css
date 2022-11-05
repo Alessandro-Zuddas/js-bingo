@@ -90,6 +90,10 @@ header {
     border-radius: .625rem;
 }
 
+.hidden{
+    display: none;
+}
+
 /*-------------------
     HEADER
 --------------------*/
