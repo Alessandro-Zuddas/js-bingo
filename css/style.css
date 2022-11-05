@@ -12,6 +12,11 @@
 --------------------*/
 body {
     background-color: #eee;
+    font-family: 'Roboto', sans-serif;
+    background-image: url(../img/img-bingo-fix.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
 }
 
 .container {
@@ -22,7 +27,7 @@ body {
 }
 
 main {
-    margin-top: 3.75rem;
+    margin-top: 1.5625rem;
     min-height: 100vh;
 }
 
@@ -45,8 +50,8 @@ header {
 .board__number {
     height: 3.75rem;
     width: 3.75rem;
-    background-color: lightblue;
-    color: #fff;
+    background-color: white;
+    color: black;
     font-size: 1.4rem;
     text-align: center;
     line-height: 3.75rem;
@@ -60,6 +65,8 @@ header {
     ACTIONS
 --------------------*/
 .actions {
+    display: flex;
+    justify-content: center;
     margin-top: 2.5rem;
 }
 
@@ -67,10 +74,40 @@ header {
     width: 150px;
     text-align: center;
     padding: .625rem;
+    background-color: white;
     border: 1px solid #000;
+    border-radius: .625rem;
 }
 .generator__number {
     font-weight: bold;
     font-size: 2rem;
     margin-top: .625rem;
+}
+
+/*-------------------
+    HEADER
+--------------------*/
+
+.main-title{
+   padding-top: .625rem;
+}
+
+/*-------------------
+    MAIN
+--------------------*/
+
+.background-panel{
+    margin-right: 4.375rem;
+    margin-left: 4.375rem;
+    padding: 4.375rem 0;
+    border-radius: .625rem;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/*-------------------
+    FOOTER
+--------------------*/
+
+footer{
+    background-color: white;
 }
