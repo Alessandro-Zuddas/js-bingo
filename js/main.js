@@ -24,21 +24,26 @@ function createBingoNumbers(cellNumber) {
     return array;
 }
 
-/*-----------------------
-    MAIN
-------------------------*/
-const boardContainer = document.querySelector('.board');
-const maxNumber = 90;
+function extractionInterval(){
 
-printBoard(boardContainer, maxNumber);
-const bingoNumbers = createBingoNumbers(maxNumber);
+    wasStarted = true;
 
-const btnGenerator = document.getElementById("btn-generator");
-const generatorNumberElement = document.querySelector(".generator__number");
+    extractionCore();
 
-const btnReset = document.getElementById("btn-reset");
+    let timerCore = setInterval(function(){
 
-btnGenerator.addEventListener('click', function() {
+        if(bingoNumbers.length !== 0){
+            extractionCore();
+        }
+    
+    }, 10000)
+    
+    setTimeout(function(){
+        clearInterval(timerCore); 
+    }, 901000);
+}
+
+function extractionCore(){
     // genero un numero casuale che sarà l'indice dell'elemento dell'array bingoNumbers
     const indexRandom = getRndInteger(0, bingoNumbers.length);
     // salvo l'elemento generato in una variabile
@@ -55,6 +60,33 @@ btnGenerator.addEventListener('click', function() {
     if(bingoNumbers.length === 0){
         alert("Gioco terminato! La pagina verrà ricaricata automaticamente");
         window.location.reload();
+    }
+}
+
+/*-----------------------
+    MAIN
+------------------------*/
+const boardContainer = document.querySelector('.board');
+const maxNumber = 90;
+
+printBoard(boardContainer, maxNumber);
+const bingoNumbers = createBingoNumbers(maxNumber);
+
+const btnGenerator = document.getElementById("btn-generator");
+const generatorNumberElement = document.querySelector(".generator__number");
+
+const btnReset = document.getElementById("btn-reset");
+
+let wasStarted = false;
+
+btnGenerator.addEventListener('click', function() {
+    if(wasStarted === false){
+        btnGenerator.innerHTML = "Ferma estrazione";
+        extractionInterval();
+    }else{
+        btnGenerator.classList.add("hidden");
+        bingoNumbers.length = 0;
+        wasStarted = false;
     }
 });
 
