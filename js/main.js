@@ -24,6 +24,7 @@ function createBingoNumbers(cellNumber) {
     return array;
 }
 
+// Funzione per definire intervallo estrazione numeri
 function extractionInterval(){
 
     wasStarted = true;
@@ -43,6 +44,7 @@ function extractionInterval(){
     }, 901000);
 }
 
+// Funzione per definire il core dell'estrazione
 function extractionCore(){
     // genero un numero casuale che sarà l'indice dell'elemento dell'array bingoNumbers
     const indexRandom = getRndInteger(0, bingoNumbers.length);
@@ -63,6 +65,34 @@ function extractionCore(){
     }
 }
 
+// Funzione per gestire il testo del cronometro
+function extractionTime(){
+
+    let timerCore = setInterval(function(){
+
+        if(timeToEnd > 0){
+
+            for (let i = 10; i > 0 ; i--) {
+            
+                timerText.innerHTML = `Prossima estrazione tra ${timeToEnd} secondi!`
+                timeToEnd--;
+                return;
+            }
+
+        }else{
+            timerText.innerHTML = `Prossima estrazione tra ${timeToEnd} secondi!`
+            timeToEnd = 10;
+            return;
+        }
+
+    }, 900)
+
+    setTimeout(function(){
+        clearInterval(timerCore); 
+    }, 901000);
+
+}
+
 /*-----------------------
     MAIN
 ------------------------*/
@@ -77,17 +107,27 @@ const generatorNumberElement = document.querySelector(".generator__number");
 
 const btnReset = document.getElementById("btn-reset");
 
+// Booleano per capire se l'estrazione è in corso
 let wasStarted = false;
+
+// Dichiarazione del testo del timer
+const timerText = document.querySelector(".timer");
+
+// Contatore timer
+let timeToEnd = 10;
 
 btnGenerator.addEventListener('click', function() {
     if(wasStarted === false){
         btnGenerator.innerHTML = "Ferma estrazione";
+        extractionTime();
         extractionInterval();
     }else{
+        timerText.classList.add("hidden");
         btnGenerator.classList.add("hidden");
         bingoNumbers.length = 0;
         wasStarted = false;
     }
+
 });
 
 btnReset.addEventListener("click", function(){
